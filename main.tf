@@ -15,11 +15,3 @@ resource "aws_instance" "my_vm" {
   tags 			 = var.ec2_tags
 }
 
-resource "aws_instance" "my_vm" {
-  ami                         = var.ami
-  subnet_id                 = data.terraform_remote_state.network_details.outputs.my_subnet
-  vpc_security_group_ids = data.terraform_remote_state.network_details.outputs.security_group_id_array
-  instance_type          = var.instance_type
-  tags = var.ec2_tags
-}
-
